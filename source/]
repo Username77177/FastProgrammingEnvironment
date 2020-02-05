@@ -1,0 +1,29 @@
+import os, os.path
+def ru_settings(usernameHome):
+    print("Привет! Сейчас мы будем делать вашу рабочую область более удобной!")
+    print("Я создам директорию во временной папке ~/PT (линукс) или на диске, котором вы укажете (на Windows)")
+    platform = os.uname()
+    if platform[0] == "Linux":
+        os.chdir(usernameHome)
+        os.mkdir("PT")
+
+    elif platform[0] == "Windows":
+        pass
+hello = '''
+\t ____                                                                       _____                         _
+\t|  _ \  _ __   ___    __ _  _ __   __ _  _ __ ___   _ __ ___    ___  _ __  |_   _|__      __  ___   __ _ | | __  ___  _ __
+\t| |_) || '__| / _ \  / _` || '__| / _` || '_ ` _ \ | '_ ` _ \  / _ \| '__|   | |  \ \ /\ / / / _ \ / _` || |/ / / _ \| '__|
+\t|  __/ | |   | (_) || (_| || |   | (_| || | | | | || | | | | ||  __/| |      | |   \ V  V / |  __/| (_| ||   < |  __/| |
+\t|_|    |_|    \___/  \__, ||_|    \__,_||_| |_| |_||_| |_| |_| \___||_|      |_|    \_/\_/   \___| \__,_||_|\_\ \___||_|
+\t                     |___/
+
+'''
+print(hello)
+print("Выберите язык (Choose your language) [RU,EN]:", end = "")
+inp = input()
+if inp.lower() == "ru":
+    pwd = os.getcwd()
+    userHome = os.path.expanduser("~")
+    ru_settings(pwd)
+else:
+    en_settings()
